@@ -22,13 +22,11 @@ function App() {
         scrollContainerRef.current
 
       const { scrollLeft: currentPosition } = scrollContainerRef.current
-
       scrollContainerRef.current.scrollLeft = currentPosition + offsetWidth
 
       console.log("🍉 scrollLeft :", scrollLeft)
       console.log("🍉 : offsetWidth", offsetWidth)
       console.log("🐳 : scrollWidth", scrollWidth)
-
       console.log("🌹 :", scrollLeft + offsetWidth)
 
       if (scrollLeft + offsetWidth >= scrollWidth) {
@@ -41,19 +39,25 @@ function App() {
   }
   return (
     <div className="App">
-      <div className="container scroll-snap" ref={scrollContainerRef}>
-        {Array.from({ length: 20 }).map((item, i) => {
-          const id = Math.random().toString(32).slice(2)
+      <div className="wrapper">
+        <div className="container scroll-snap" ref={scrollContainerRef}>
+          {Array.from({ length: 20 }).map((item, i) => {
+            const id = Math.random().toString(32).slice(2)
 
-          return (
-            <div key={id} className="item" ref={scrollItemRef}>
-              {i}
-            </div>
-          )
-        })}
+            return (
+              <div key={id} className="item" ref={scrollItemRef}>
+                {i}
+              </div>
+            )
+          })}
+        </div>
+        <button className="btn btn-prev" onClick={handlePrev}>
+          Prev
+        </button>
+        <button className="btn btn-next" onClick={handleNext}>
+          Next
+        </button>
       </div>
-      <button onClick={handlePrev}>Prev</button>
-      {!hideNextButton && <button onClick={handleNext}>Next</button>}
     </div>
   )
 }

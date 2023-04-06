@@ -1,42 +1,78 @@
 .App {
   width: 100%;
   min-height: 100vh;
+  padding: 2rem;
   /* background-color: red; */
 }
 
 .container {
-  /* display: grid;
+  display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: 23%; */
+  grid-template-columns: repeat(20, 300px);
+  align-items: center;
 
-  display: flex;
-  gap: 1rem;
+  gap: 2rem;
   background-color: gray;
   height: 250px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
   padding: 1rem;
+  z-index: 2;
 }
 
 .item {
   display: inline-flex;
-  /* width: 100%; */
-  min-width: 200px;
+  width: 100%;
   height: 200px;
   background-color: lemonchiffon;
-  margin: 10px;
   color: black;
   justify-content: center;
   align-items: center;
   font-size: 2rem;
+  border: 1px solid black;
 }
 
 .scroll-snap {
   scroll-snap-type: x mandatory;
   scroll-padding-inline: 1rem;
   scroll-behavior: smooth;
+  scroll-padding-left: 20px;
 }
 
-.scroll-snap > * {
+.scroll-snap > .item {
   scroll-snap-align: start;
+  /* padding-right: 20px; */
+}
+
+.wrapper {
+  position: relative;
+  width: 900px;
+}
+
+.btn {
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.btn.btn-prev {
+  left: -24px;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 99%;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+}
+
+.btn.btn-next {
+  right: -24px;
+  top: 50%;
+  width: 50px;
+  height: 50px;
+  border-radius: 99%;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
