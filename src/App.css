@@ -1,0 +1,42 @@
+.App {
+  width: 100%;
+  min-height: 100vh;
+  /* background-color: red; */
+}
+
+.container {
+  /* display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 23%; */
+
+  display: flex;
+  gap: 1rem;
+  background-color: gray;
+  height: 250px;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  padding: 1rem;
+}
+
+.item {
+  display: inline-flex;
+  /* width: 100%; */
+  min-width: 200px;
+  height: 200px;
+  background-color: lemonchiffon;
+  margin: 10px;
+  color: black;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+}
+
+.scroll-snap {
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: 1rem;
+  scroll-behavior: smooth;
+}
+
+.scroll-snap > * {
+  scroll-snap-align: start;
+}
