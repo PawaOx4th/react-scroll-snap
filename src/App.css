@@ -1,3 +1,10 @@
+:root {
+  --padding: 1rem;
+  --gap: 1rem;
+  --items-count: 20;
+  --items-per-row: 2;
+  --outline: 0.1rem;
+}
 .App {
   width: 100%;
   min-height: 100vh;
@@ -8,15 +15,21 @@
 .container {
   display: grid;
   grid-auto-flow: column;
-  grid-template-columns: repeat(20, 300px);
+  grid-template-columns: repeat(
+    var(--items-count),
+    calc(
+      calc(100% / var(--items-per-row)) -
+        calc(var(--gap) + var(--padding) + var(--outline))
+    )
+  );
   align-items: center;
 
-  gap: 2rem;
+  gap: var(--gap);
   background-color: gray;
   height: 250px;
   overflow-x: auto;
   overscroll-behavior-inline: contain;
-  padding: 1rem;
+  padding: var(--padding);
   z-index: 2;
 }
 
